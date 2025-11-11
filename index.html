@@ -16,8 +16,8 @@
     }
 
     h1 {
-      margin-bottom: 50px;
-      font-size: 2.5em;
+      margin-bottom: 20px;
+      font-size: 2.3em;
       background: linear-gradient(90deg, #004aad, #0077ff);
       background-clip: text;
       -webkit-background-clip: text;
@@ -30,8 +30,8 @@
       background-color: #ffffff;
       border: 1px solid #d1d9e6;
       border-radius: 15px;
-      padding: 25px 30px 80px 30px;
-      margin: 0 auto;
+      padding: 20px 20px 60px 20px;
+      margin: 0 auto 30px auto;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
       width: 100%;
       max-width: 1500px;
@@ -44,9 +44,9 @@
     }
 
     .form-container h2 {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       color: #004aad;
-      font-size: 1.5em;
+      font-size: 1.3em;
       border-left: 5px solid #0077ff;
       padding-left: 10px;
       font-weight: 600;
@@ -56,7 +56,7 @@
     /* ---------- Iframe ---------- */
     iframe {
       width: 100%;
-      height: 1100px;
+      height: 1000px;
       border: none;
       border-radius: 10px;
       background-color: #f0f4ff;
@@ -66,7 +66,7 @@
     /* ---------- Button Container ---------- */
     .button-container {
       text-align: center;
-      margin-top: 30px;
+      margin-bottom: 20px;
       display: flex;
       justify-content: center;
       gap: 15px;
@@ -79,7 +79,7 @@
       border: none;
       border-radius: 50px;
       font-size: 1.1em;
-      padding: 12px 25px;
+      padding: 10px 20px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: background 0.3s ease;
     }
@@ -95,12 +95,26 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 768px) {
-      iframe {
-        height: 1300px;
+      h1 {
+        font-size: 1.8em;
       }
+
+      iframe {
+        height: 1250px;
+      }
+
       button {
         font-size: 1em;
-        padding: 10px 20px;
+        padding: 8px 18px;
+      }
+
+      .button-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .form-container {
+        padding: 15px;
       }
     }
 
@@ -116,30 +130,30 @@
   <h1>SASE Book Event</h1>
 
   <div class="form-container active">
-    <h2>Media Request Form</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScIDZQJxaiQEQHvzED9IEEZq8RLBXDU5d_IVXJIEixJKskpTg/viewform?embedded=true"></iframe>
     <div class="button-container">
       <button class="back-btn" disabled>← Back</button>
       <button class="next-btn">Next →</button>
     </div>
+    <h2>Media Request Form</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScIDZQJxaiQEQHvzED9IEEZq8RLBXDU5d_IVXJIEixJKskpTg/viewform?embedded=true"></iframe>
   </div>
 
   <div class="form-container">
-    <h2>Room Booking Form</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeq7u3W_WL4CEst4upvS5iamE-Rdxfji8PcbypvH5sxGaPyMw/viewform?embedded=true"></iframe>
     <div class="button-container">
       <button class="back-btn">← Back</button>
       <button class="next-btn">Next →</button>
     </div>
+    <h2>Room Booking Form</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeq7u3W_WL4CEst4upvS5iamE-Rdxfji8PcbypvH5sxGaPyMw/viewform?embedded=true"></iframe>
   </div>
 
   <div class="form-container">
-    <h2>Reimbursement Form</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeeXCDWDeFkTFhq2D_ws0xgC7ywNJw63dqqA746_d_dRVkjkw/viewform?embedded=true"></iframe>
     <div class="button-container">
       <button class="back-btn">← Back</button>
       <button class="next-btn" disabled>Next →</button>
     </div>
+    <h2>Reimbursement Form</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeeXCDWDeFkTFhq2D_ws0xgC7ywNJw63dqqA746_d_dRVkjkw/viewform?embedded=true"></iframe>
   </div>
 
   <script>
@@ -153,7 +167,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    nextBtns.forEach((btn, index) => {
+    nextBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         if (current < forms.length - 1) {
           current++;
@@ -162,7 +176,7 @@
       });
     });
 
-    backBtns.forEach((btn, index) => {
+    backBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         if (current > 0) {
           current--;
