@@ -10,59 +10,42 @@
 
   <h1>SASE Book Event</h1>
 
+  <!-- Tab Navigation -->
+  <div class="tab-container">
+    <button class="tab-btn active" data-tab="0">Media Request</button>
+    <button class="tab-btn" data-tab="1">Room Booking</button>
+    <button class="tab-btn" data-tab="2">Reimbursement</button>
+  </div>
+
+  <!-- Forms -->
   <div class="form-container active">
-    <div class="button-container">
-      <button class="back-btn" disabled>← Back</button>
-      <button class="next-btn">Next →</button>
-    </div>
     <h2>Media Request Form</h2>
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScIDZQJxaiQEQHvzED9IEEZq8RLBXDU5d_IVXJIEixJKskpTg/viewform?embedded=true"></iframe>
   </div>
 
   <div class="form-container">
-    <div class="button-container">
-      <button class="back-btn">← Back</button>
-      <button class="next-btn">Next →</button>
-    </div>
     <h2>Room Booking Form</h2>
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeq7u3W_WL4CEst4upvS5iamE-Rdxfji8PcbypvH5sxGaPyMw/viewform?embedded=true"></iframe>
   </div>
 
   <div class="form-container">
-    <div class="button-container">
-      <button class="back-btn">← Back</button>
-      <button class="next-btn" disabled>Next →</button>
-    </div>
     <h2>Reimbursement Form</h2>
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeeXCDWDeFkTFhq2D_ws0xgC7ywNJw63dqqA746_d_dRVkjkw/viewform?embedded=true"></iframe>
   </div>
 
   <script>
+    const tabs = document.querySelectorAll('.tab-btn');
     const forms = document.querySelectorAll('.form-container');
-    const nextBtns = document.querySelectorAll('.next-btn');
-    const backBtns = document.querySelectorAll('.back-btn');
-    let current = 0;
 
-    function showForm(index) {
-      forms.forEach((form, i) => form.classList.toggle('active', i === index));
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        forms.forEach(f => f.classList.remove('active'));
 
-    nextBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        if (current < forms.length - 1) {
-          current++;
-          showForm(current);
-        }
-      });
-    });
+        tab.classList.add('active');
+        forms[index].classList.add('active');
 
-    backBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        if (current > 0) {
-          current--;
-          showForm(current);
-        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
   </script>

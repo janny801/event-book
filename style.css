@@ -18,22 +18,55 @@ h1 {
   animation: fadeIn 1.2s ease-in-out;
 }
 
+/* ---------- Tabs ---------- */
+.tab-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background-color: #dce9ff;
+  color: #004aad;
+  border: 1px solid #b3c8ff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background-color: #0077ff;
+  color: #fff;
+  border-color: #0077ff;
+  font-weight: 600;
+}
+
+.tab-btn:hover:not(.active) {
+  background-color: #cfe1ff;
+}
+
 /* ---------- Form Container ---------- */
 .form-container {
   background-color: #ffffff;
   border: 1px solid #d1d9e6;
   border-radius: 15px;
-  padding: 20px 20px 60px 20px;
+  padding: 20px;
   margin: 0 auto 30px auto;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 1500px;
   display: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .form-container.active {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .form-container h2 {
@@ -56,36 +89,6 @@ iframe {
   animation: fadeIn 0.8s ease-in;
 }
 
-/* ---------- Button Container ---------- */
-.button-container {
-  text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-button {
-  cursor: pointer;
-  background-color: #0077ff;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-size: 1.1em;
-  padding: 10px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s ease;
-}
-
-button:hover:not(:disabled) {
-  background-color: #004aad;
-}
-
-button:disabled {
-  background-color: #a8c5ff;
-  cursor: not-allowed;
-}
-
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   h1 {
@@ -96,14 +99,9 @@ button:disabled {
     height: 1250px;
   }
 
-  button {
-    font-size: 1em;
-    padding: 8px 18px;
-  }
-
-  .button-container {
-    flex-direction: column;
-    gap: 10px;
+  .tab-btn {
+    width: 90%;
+    max-width: 300px;
   }
 
   .form-container {
