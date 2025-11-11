@@ -7,22 +7,44 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f8f9fa;
+      background-color: #f8f9fa;
       margin: 0;
-      padding: 20px;
-      text-align: center;
+      padding: 40px 20px;
     }
+
     h1 {
-      margin-bottom: 30px;
-    }
-    .form-container {
+      text-align: center;
       margin-bottom: 50px;
+      font-size: 2em;
+      color: #333;
     }
+
+    .form-container {
+      background-color: #ffffff;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 0 auto 60px auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      max-width: 1200px;
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      color: #222;
+    }
+
     iframe {
       width: 100%;
-      max-width: 640px;
-      height: 800px;
+      height: 1000px;
       border: none;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 768px) {
+      iframe {
+        height: 1200px;
+      }
     }
   </style>
 </head>
